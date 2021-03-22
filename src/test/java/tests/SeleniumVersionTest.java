@@ -21,7 +21,7 @@ public class SeleniumVersionTest extends BaseTest {
 
     @Test
     public void checkSeleniumVersion() {
-        loginPage.login("kgalchinskii", "1993kostyan4ik");
+        loginPage.login("", "");
         searchPage.search("G48Automation");
         projectPage.displaySeleniumVersion();
     }
