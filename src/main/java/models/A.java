@@ -1,3 +1,5 @@
+package models;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +21,7 @@ public class A extends Parent {
     }
 
     public A() {
-        log.info("Новый пустой экземпляр класса <A>");
+        log.info("Новый пустой экземпляр класса <models.A>");
     }
 
     public A(String name, int number) {

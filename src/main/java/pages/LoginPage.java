@@ -13,10 +13,11 @@ public class LoginPage extends BasePage {
     private By passwordField = By.name("password");
     private By submitButton = By.name("commit");
 
-    public void login(String username, String password) {
+    public MainPage login(String username, String password) {
         driver.findElement(loginField).sendKeys(username);
         driver.findElement(passwordField).sendKeys(password);
         driver.findElement(submitButton).click();
+        return new MainPage(driver);
     }
 
 }
