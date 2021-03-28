@@ -16,12 +16,12 @@ public class Tests extends BaseTest {
     @Test
     public void checkSeleniumVersion() {
         loginPage.login("", "")
-        .search("G48Automation")
-        .openProjectG48Search()
-        .openPomFile()
-        .displaySeleniumVersion()
-        .logOut()
-        .checkLogOut();
+                .search("G48Automation")
+                .openProjectG48Search()
+                .openPomFile()
+                .displaySeleniumVersion()
+                .logOut()
+                .checkLogOut();
     }
 
     @Test
