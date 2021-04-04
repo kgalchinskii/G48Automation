@@ -12,9 +12,9 @@ public abstract class BasePage {
     protected WebDriverWait waitFor10;
     protected WebDriverWait waitFor25;
 
-    public BasePage(WebDriver driver) {
+    public BasePage(WebDriver driver, String title) {
         this.driver = driver;
-        this.log = LogManager.getLogger(getClass().getName());
+        this.log = LogManager.getLogger(title);
         this.waitFor10 = new WebDriverWait(this.driver, 10);
         this.waitFor25 = new WebDriverWait(this.driver, 25);
     }

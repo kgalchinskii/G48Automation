@@ -2,14 +2,14 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import pages.code.CodePage;
+import pages.issues.IssuePage;
 
-public class ProjectPage extends BaseAuthorizedPage {
+public class BaseProjectPage extends BaseAuthorizedPage {
 
-    public ProjectPage(WebDriver driver) {
-        super(driver);
+    public BaseProjectPage(WebDriver driver, String title) {
+        super(driver, title);
     }
-
-    private By pomXml = By.xpath("//a[@title='pom.xml']");
 
     private By codeTab = By.xpath("//span[@data-content = 'Code']");
     private By issueTab = By.xpath("//span[@data-content = 'Issues']");
@@ -21,12 +21,8 @@ public class ProjectPage extends BaseAuthorizedPage {
     private By insightsTab = By.xpath("//span[@data-content = 'Insights']");
     private By settingsTab = By.xpath("//span[@data-content = 'Settings']");
 
-    public PomPage openPomFile() {
-        driver.findElement(pomXml).click();
-        return new PomPage(driver);
-    }
-
-    public ProjectPage displayTabs (){
+    public BaseProjectPage displayTabs() {
+        log.debug("Отображаем все вкладки проекта");
         log.info(driver.findElement(codeTab).getText());
         log.info(driver.findElement(issueTab).getText());
         log.info(driver.findElement(pullRequestsTab).getText());
@@ -36,7 +32,22 @@ public class ProjectPage extends BaseAuthorizedPage {
         log.info(driver.findElement(securityTab).getText());
         log.info(driver.findElement(insightsTab).getText());
         log.info(driver.findElement(settingsTab).getText());
+        log.debug("Вкладки проекта отображены. Успешно");
         return this;
+    }
+
+    public CodePage openCodeTab() {
+        log.debug("Открываем вкладку проекта с исходным кодом");
+        driver.findElement(codeTab).click();
+        log.debug("Вкладка открыта. Успешно");
+        return new CodePage(driver);
+    }
+
+    public IssuePage openIssueTab() {
+        log.debug("Открываем вкладку с задачами проекта");
+        driver.findElement(issueTab).click();
+        log.debug("Вкладка открыта. Успешно");
+        return new IssuePage(driver);
     }
 
 }

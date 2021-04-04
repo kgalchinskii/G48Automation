@@ -17,7 +17,8 @@ public class Tests extends BaseTest {
     public void checkSeleniumVersion() {
         loginPage.login("", "")
                 .search("G48Automation")
-                .openProjectG48Search()
+                .openProjectG48FromSearch()
+                .openCodeTab()
                 .openPomFile()
                 .displaySeleniumVersion()
                 .logOut()
@@ -28,7 +29,7 @@ public class Tests extends BaseTest {
     public void displayTabs(){
         loginPage.login("", "")
                 .search("G48Automation")
-                .openProjectG48Search()
+                .openProjectG48FromSearch()
                 .displayTabs()
                 .logOut()
                 .checkLogOut();

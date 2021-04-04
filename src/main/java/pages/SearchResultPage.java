@@ -5,15 +5,19 @@ import org.openqa.selenium.WebDriver;
 
 public class SearchResultPage extends BaseAuthorizedPage {
 
+    private static final String title = "Страница результатов поиска";
+
     public SearchResultPage(WebDriver driver) {
-        super(driver);
+        super(driver, title);
     }
 
     private By repositoryLinkSearch = By.xpath("//a[@href = '/kgalchinskii/G48Automation']");
 
-    public ProjectPage openProjectG48Search() {
+    public BaseProjectPage openProjectG48FromSearch() {
+        log.debug("Открываем проект");
         driver.findElement(repositoryLinkSearch).click();
-        return new ProjectPage(driver);
+        log.debug("Проект открыт. Успешно");
+        return new BaseProjectPage(driver, "Основная страница проекта");
     }
 
 }
