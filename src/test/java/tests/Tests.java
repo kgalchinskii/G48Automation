@@ -15,7 +15,7 @@ public class Tests extends BaseTest {
 
     @Test
     public void checkSeleniumVersion() {
-        loginPage.login("", "")
+        loginPage.login("kgalchinskii", "1993kostyan4ik")
                 .search("G48Automation")
                 .openProjectG48FromSearch()
                 .openCodeTab()
@@ -27,7 +27,7 @@ public class Tests extends BaseTest {
 
     @Test
     public void displayTabs(){
-        loginPage.login("", "")
+        loginPage.login("kgalchinskii", "1993kostyan4ik")
                 .search("G48Automation")
                 .openProjectG48FromSearch()
                 .displayTabs()

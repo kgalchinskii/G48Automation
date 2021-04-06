@@ -13,7 +13,7 @@ public class PomPage extends BaseAuthorizedPage {
         super(driver, title);
     }
 
-    private By seleniumVersion = By.xpath("//td[@id='LC49']");
+    private By seleniumVersion = By.xpath("//*[@id=\"LC77\"]");
 
     public PomPage displaySeleniumVersion() {
         log.debug("Сравниваем версию selenium");
