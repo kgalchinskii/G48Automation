@@ -1,14 +1,14 @@
-package tests.IssueTests;
+package tests.ui.IssueTests;
 
+import io.qameta.allure.*;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import pages.LoginPage;
-import tests.BaseTest;
+import tests.ui.BaseTest;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static helpers.ExcelHelper.readExcelIssueTest;
@@ -36,14 +36,28 @@ public class IssueExcelTest extends BaseTest {
     @Parameterized.Parameters
     public static List<Object[]> data() {
         List<Object[]> result = readExcelIssueTest(
-                "D:\\QAlight\\G48_Automation_Galchinskij\\src\\test\\resources\\testData\\IssueCreationData.xls",
+                System.getProperty("user.dir") + "\\src\\test\\resources\\testData\\IssueCreationData.xls",
                 "Лист1");
         return result;
     }
 
+    @Owner("Galchinskij")
+    @Severity(SeverityLevel.CRITICAL)
+    @TmsLink("GH-4")
+    @Description("Check issue creation")
+    @Stories({
+            @Story("GitHub"),
+            @Story("G48Automation")
+    })
+    @Feature("Issues creation. Data from excel")
+    @Issues({
+            @Issue(""),
+            @Issue("")
+    })
+    @DisplayName("")
     @Test
     public void checkIssueCreation() {
-        loginPage.login("kgalchinskii", "1993kostyan4ik")
+        loginPage.login(System.getProperty("username"), System.getProperty("password"))
                 .search("G48Automation")
                 .openProjectG48FromSearch()
                 .openIssueTab()

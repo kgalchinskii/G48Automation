@@ -1,0 +1,83 @@
+{
+  "definitions": {},
+  "title": "Root",
+  "type": "object",
+  "required": [
+    "success",
+    "data",
+    "errors",
+    "warnings",
+    "info",
+    "messageCodes",
+    "errorCodes",
+    "warningCodes",
+    "infoCodes"
+  ],
+  "properties": {
+    "success": {
+      "title": "Success",
+      "type": "boolean"
+    },
+    "data": {
+      "title": "Data",
+      "type": "array",
+      "items":{
+        "title": "Items",
+        "type": "object",
+        "required": [
+          "Number",
+          "Start",
+          "End",
+          "onNextDay"
+        ],
+        "properties": {
+          "Number": {
+            "title": "Number",
+            "type": "string"
+          },
+          "Start": {
+            "title": "Start",
+            "type": "string"
+          },
+          "End": {
+            "title": "End",
+            "type": "string"
+          },
+          "onNextDay": {
+            "title": "Onnextday",
+            "type": "integer"
+          }
+        }
+      }
+
+    },
+    "errors": {
+      "title": "Errors",
+      "type": "array"
+    },
+    "warnings": {
+      "title": "Warnings",
+      "type": "array"
+    },
+    "info": {
+      "title": "Info",
+      "type": "array"
+    },
+    "messageCodes": {
+      "title": "Messagecodes",
+      "type": "array"
+    },
+    "errorCodes": {
+      "title": "Errorcodes",
+      "type": "array"
+    },
+    "warningCodes": {
+      "title": "Warningcodes",
+      "type": "array"
+    },
+    "infoCodes": {
+      "title": "Infocodes",
+      "type": "array"
+    }
+  }
+}
