@@ -22,7 +22,7 @@ public class IssueCreationPage extends BaseProjectPage {
     private By labelsButton = By.id("labels-select-menu");
     private By labelsList = By.xpath("//div[@class = 'css-truncate']/span");
 
-    public IssueInfoPage createNewIssue(String title, String body, List<String> labels){
+    public IssueInfoPage createNewIssue(String title, String body, List<String> labels) {
         log.debug(String.format("Создаем задачу \"%s\" с комментарием \"%s\" и лейблами \"%s\"", title, body, labels));
         log.debug("Заполняем поле 'Title'");
         driver.findElement(titleField).sendKeys(title);
@@ -38,12 +38,6 @@ public class IssueCreationPage extends BaseProjectPage {
         log.debug("Получаем список доступных лейбл");
         List<WebElement> labelsOnPage = driver.findElements(labelsList);
         log.debug("Список получен. Успешно");
-
-//        for(WebElement labelOnPage : labelsOnPage){
-//            if(labels.contains(labelOnPage.getText())){
-//                labelOnPage.click();
-//            }
-//        }
 
         log.debug("Задаем необходимые лейблы");
         labelsOnPage.stream()

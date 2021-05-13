@@ -14,7 +14,7 @@ public class IssuePage extends BaseProjectPage {
 
     private By newIssueButton = By.xpath("//span[text() = 'New issue']");
 
-    public IssueCreationPage openCreationPage(){
+    public IssueCreationPage openCreationPage() {
         log.debug("Нажимаем на кнопку 'New issue'");
         driver.findElement(newIssueButton).click();
         log.debug("Кнопка нажата. Успешно");

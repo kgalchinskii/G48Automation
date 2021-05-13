@@ -15,7 +15,7 @@ public class FileHelper {
 
     private static final Logger log = LogManager.getLogger("Обработчик файлов");
 
-    public static List<String> readFile(String path){
+    public static List<String> readFile(String path) {
         try {
             log.debug("Читаем файл: " + path);
             return Files.readAllLines(Paths.get(path));
@@ -25,7 +25,7 @@ public class FileHelper {
         }
     }
 
-    public static List<String> readFile(File file){
+    public static List<String> readFile(File file) {
         try {
             log.debug("Читаем файл: " + file.getPath());
             return Files.readAllLines(file.toPath());
@@ -35,10 +35,10 @@ public class FileHelper {
         }
     }
 
-    public static File writeFileAndGet(List<String> data, String name){
+    public static File writeFileAndGet(List<String> data, String name) {
         log.debug("Пишем файл: " + name);
         File parent = new File("D:\\QAlight\\G48_Automation_Galchinskij\\target\\outputFiles");
-        if(!parent.exists()){
+        if (!parent.exists()) {
             log.debug("Создаем недостающие директории");
             parent.mkdirs();
         }

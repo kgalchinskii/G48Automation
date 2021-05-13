@@ -16,6 +16,7 @@
         <driver.name>${driver.name}</driver.name>
         <driver.path>${driver.path}</driver.path>
         <aspectj.version>1.9.6</aspectj.version>
+        <input.file>${input.file}</input.file>
     </properties>
 
     <build>
@@ -38,6 +39,7 @@
                     <argLine>
                         -Dbrowser=${browser} -D${driver.name}=${driver.path}
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                        -Dinput.file=${input.file}
                     </argLine>
                     <systemPropertyVariables>
                         <allure.results.directory>${project.basedir}/target/allure-results</allure.results.directory>
@@ -79,6 +81,18 @@
                 <driver.name>webdriver.gecko.driver</driver.name>
                 <driver.path>${driver.dir.path}/firefox/${browser.version}/geckodriver.exe</driver.path>
                 <aspectj.version>1.8.10</aspectj.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>File</id>
+            <properties>
+                <input.file>file</input.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>Excel</id>
+            <properties>
+                <input.file>excel</input.file>
             </properties>
         </profile>
     </profiles>
