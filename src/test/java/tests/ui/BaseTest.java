@@ -5,8 +5,12 @@ import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.util.concurrent.TimeUnit;
+
+import static helpers.PropertyLoader.loadProperty;
+import static java.lang.Integer.parseInt;
 
 public abstract class BaseTest {
 
@@ -23,9 +27,11 @@ public abstract class BaseTest {
                 this.driver = new ChromeDriver();
                 break;
         }
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(
+                parseInt(loadProperty("timeout.implicit")),
+                TimeUnit.SECONDS);
         driver.manage().window().maximize();
-        driver.get("https://github.com/login");
+        driver.get(loadProperty("app.url"));
     }
 
     @After
